@@ -1,0 +1,47 @@
+'use strict';
+
+function My_Date() {
+    var d = document.getElementById(
+        "galaxydate").autocomplete = "on";
+}
+function dateInput() {
+    var date = document.getElementById("galaxydate").value;
+    //check if the date>today
+    getNasadata(date);
+
+
+}
+/*function today() {
+    var date = new date();
+    return date;
+}*/
+
+/*get data from Nasa Api by date */
+const getNasadata = function (date) {
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=Niv6BDsywRaqU6rasQ1gAC1j9ByReklPu0m93JdY&date=${date}`).then(
+        function (response) {
+            console.log(response);
+            return response.json();
+        }).then(function (data) {
+            console.log(data);
+        }).catch((error) => poemDisplay.textContent = `Could not fetch verse: ${error}`);
+
+}
+
+//console.log(data);
+/*const html = `<main class="container">
+<div class="imgdata">
+
+      <article class="nasaData">
+        <img class="planetImg" src="${data}" />
+        <div class="imgdata">
+          <h3 class="title">title</h3>
+          <p class="explination">explination</p>
+          <h3 class="copyright">copyright<h3>
+        </div>
+      </article>
+
+</div>`;*/
+
+
+//const imgdataContainer = document.document.querySelector('.imgdata')
