@@ -24,9 +24,41 @@ const getNasadata = function (date) {
             return response.json();
         }).then(function (data) {
             console.log(data);
-        }).catch((error) => poemDisplay.textContent = `Could not fetch verse: ${error}`);
+            show(data);
+        }).catch((err) => console.error(`Fetch problem: ${err.message}`));
 
 }
+
+
+
+function show(data) {
+    let p = `${data.title}`;
+    document.getElementById("employees").innerHTML = p;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //console.log(data);
 /*const html = `<main class="container">
