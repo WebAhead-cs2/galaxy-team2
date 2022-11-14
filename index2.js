@@ -43,25 +43,35 @@ const getNasadata = function (date) {
 
 function show(getData) {
 
+    // Setting innerHTML as tab variable
+   
+let tab=``;
 
+ // <div id="inner">
+    //     <p>Copyright: ${getData.copyright} </p>
+    //     <p>Date: ${getData.date}</p>
+    //     <p>Explanation: ${getData.explanation}</p> 
+    //     </div>
 
     // Loop to access all rows 
-
-    let tab = `
-        <p>Copyright: ${getData.copyright} </p>
-        <p>Date: ${getData.date}</p>
-        <p>Explanation: ${getData.explanation}</p> 
-        
-              
-    `;
     if (getData.media_type = "image") {
-        tab += `<img src="${getData.hdurl}"/>`
+        tab += `<div class="im"><img src="${getData.url}"/></div>`
     }
-    // Setting innerHTML as tab variable
-    document.getElementById("getData").innerHTML = tab;
+     tab += `
+<div class="card">
+<div class="container">
+  <h2><b>Title: ${getData.title}</b></h2> 
+  <h3>Date: ${getData.date}</h3>
+  <p>${getData.explanation}</p> 
+  <h4>Copyright: ${getData.copyright} </h4>
 
-
+</div>
+</div>
+    `; 
+  
+document.getElementById("getData").innerHTML = tab;
 }
+
 
 var data;
 function autocomplete(inp, arr) {
